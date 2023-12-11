@@ -89,7 +89,7 @@ Component1 As CanvasComponent:
                         },
                         {
                             Title: "Study",
-                            TargetScreen: Options,
+                            TargetScreen: Study,
                             Icon: Icon.OptionsList
                         }
                     )
@@ -151,6 +151,90 @@ Component1 As CanvasComponent:
                             }
                         )
                     }
+                ),
+                If(
+                    VarUSerName = "approver1",
+                    Table(
+                        {
+                            Title: "Dashboard",
+                            TargetScreen: Dashboard,
+                            Icon: Icon.DetailList
+                        },
+                        {
+                            Title: "Inbox",
+                            TargetScreen: App.ActiveScreen,
+                            SubMenu: Table(
+                                {
+                                    Title: "For Approval",
+                                    TargetScreen: 'For Approval(Approver1)',
+                                    Icon: Icon.OptionsList
+                                }
+                            )
+                        }
+                    ),
+                    If(
+                        VarUSerName = "approver2",
+                        Table(
+                            {
+                                Title: "Dashboard",
+                                TargetScreen: Dashboard,
+                                Icon: Icon.DetailList
+                            },
+                            {
+                                Title: "Inbox",
+                                TargetScreen: App.ActiveScreen,
+                                SubMenu: Table(
+                                    {
+                                        Title: "For Approval",
+                                        TargetScreen: 'For Approval(Approver2)',
+                                        Icon: Icon.OptionsList
+                                    }
+                                )
+                            }
+                        ),
+                        If(
+                            VarUSerName = "approver3",
+                            Table(
+                                {
+                                    Title: "Dashboard",
+                                    TargetScreen: Dashboard,
+                                    Icon: Icon.DetailList
+                                },
+                                {
+                                    Title: "Inbox",
+                                    TargetScreen: App.ActiveScreen,
+                                    SubMenu: Table(
+                                        {
+                                            Title: "For Approval",
+                                            TargetScreen: 'For Approval 3',
+                                            Icon: Icon.OptionsList
+                                        }
+                                    )
+                                }
+                            ),
+                            If(
+                                VarUSerName = "approver4",
+                                Table(
+                                    {
+                                        Title: "Dashboard",
+                                        TargetScreen: Dashboard,
+                                        Icon: Icon.DetailList
+                                    },
+                                    {
+                                        Title: "Inbox",
+                                        TargetScreen: App.ActiveScreen,
+                                        SubMenu: Table(
+                                            {
+                                                Title: "For Approval",
+                                                TargetScreen: 'For Approval 4',
+                                                Icon: Icon.OptionsList
+                                            }
+                                        )
+                                    }
+                                )
+                            )
+                        )
+                    )
                 )
             )
         )
