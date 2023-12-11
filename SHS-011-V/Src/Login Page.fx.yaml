@@ -99,6 +99,24 @@
             );
             Reset(UsrNameTxt);
             Reset(PswdTxt);
+            If(
+                !IsBlank(
+                    LookUp(
+                        'Login Details',
+                        Username = UsrNameTxt.Text And Password = PswdTxt.Text
+                    )
+                ),
+                Set(VarUSerName,UsrNameTxt.Text);
+                Navigate(
+                    Dashboard,
+                    Transition.None
+                ),
+                Notify("Please Enter Valid User Name And Password"),
+                NotificationType.Error,
+                2000
+            );
+            Reset(UsrNameTxt);
+            Reset(PswdTxt);
         RadiusBottomLeft: =15
         RadiusBottomRight: =15
         RadiusTopLeft: =15
