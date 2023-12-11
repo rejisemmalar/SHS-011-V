@@ -45,7 +45,7 @@ Division As screen:
                     FillPortions: =1
                     FontWeight: =FontWeight.Bold
                     Height: =Parent.Height
-                    Size: =17
+                    Size: =20
                     Text: ="Division"
                     Y: =62
                     ZIndex: =1
@@ -181,7 +181,7 @@ Division As screen:
                     Align: =Align.Center
                     FontWeight: =FontWeight.Bold
                     Height: =44
-                    Size: =20
+                    Size: =15
                     Text: ="Division Code"
                     Width: =220
                     X: =10
@@ -203,7 +203,7 @@ Division As screen:
                     Align: =Align.Center
                     FontWeight: =FontWeight.Bold
                     Height: =44
-                    Size: =20
+                    Size: =15
                     Text: ="Division Name"
                     Width: =220
                     X: =293
@@ -225,7 +225,7 @@ Division As screen:
                     FillPortions: =1
                     FontWeight: =FontWeight.Bold
                     Height: =44
-                    Size: =20
+                    Size: =15
                     Text: ="Action"
                     Width: =220
                     X: =661
@@ -301,6 +301,7 @@ Division As screen:
                         ZIndex: =3
 
                         Button3 As button:
+                            Fill: =RGBA(255, 0, 0, 1)
                             OnSelect: |-
                                 =UpdateContext({varshoweditpopup:true})
                             Text: ="Edit"
@@ -308,6 +309,7 @@ Division As screen:
                             ZIndex: =1
 
                         Button3_1 As button:
+                            Fill: =RGBA(255, 0, 0, 1)
                             OnSelect: |-
                                 =UpdateContext({varDeletePopUp:true})
                             Text: ="Delete"
