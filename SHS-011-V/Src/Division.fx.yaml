@@ -356,6 +356,14 @@ Division As screen:
                             Width: =100
                             ZIndex: =2
 
+                        Button3_2 As button:
+                            Fill: =RGBA(255, 0, 0, 1)
+                            OnSelect: |-
+                                =UpdateContext({AddFactor:true})
+                            Text: ="Add Factor"
+                            Width: =150
+                            ZIndex: =3
+
     DeletePop As groupContainer.verticalAutoLayoutContainer:
         DropShadow: =DropShadow.Regular
         Fill: =RGBA(0, 0, 0, 0.5)
@@ -1798,6 +1806,159 @@ Division As screen:
                 Button4_1 As button:
                     OnSelect: |-
                         =UpdateContext({showpopup:false})
+                    Text: ="Cancel"
+                    ZIndex: =2
+
+    AddFactor As groupContainer.verticalAutoLayoutContainer:
+        DropShadow: =DropShadow.Regular
+        Fill: =RGBA(0, 0, 0, 0.5)
+        Height: =App.Height-DivComp.ComHeaderHeight
+        LayoutAlignItems: =LayoutAlignItems.Center
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutJustifyContent: =LayoutJustifyContent.Center
+        LayoutMode: =LayoutMode.Auto
+        Visible: =AddFactor
+        Width: =App.Width-DivComp.VarMenuWidth
+        X: =DivComp.VarMenuWidth
+        Y: =DivComp.ComHeaderHeight
+        ZIndex: =25
+
+        Container27_37 As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Fill: =Color.AliceBlue
+            FillPortions: =0
+            Height: =550
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Width: =900
+            ZIndex: =1
+
+            Icon28_24 As icon.Cancel:
+                AlignInContainer: =AlignInContainer.End
+                Height: =50
+                Icon: =Icon.Cancel
+                OnSelect: |-
+                    =UpdateContext({AddFactor:false})
+                Width: =50
+                ZIndex: =1
+
+            Label22_7 As label:
+                Align: =Align.Center
+                FontWeight: =FontWeight.Bold
+                Height: =52
+                Size: =20
+                Text: ="Factors this  Division"
+                Width: =Parent.Width
+                X: =15
+                Y: =27
+                ZIndex: =2
+
+            Container28_17 As groupContainer.horizontalAutoLayoutContainer:
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutGap: =50
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =3
+
+                Form2_1 As form:
+                    DataSource: =Division_1
+                    Item: =Gallery6.Selected
+                    LayoutMinHeight: =250
+                    LayoutMinWidth: =400
+                    NumberOfColumns: =1
+                    ZIndex: =1
+
+                    Factors_DataCard4 As typedDataCard.comboBoxMultiSelectEditCard:
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="Factors"
+                        Default: =ThisItem.Factors
+                        DisplayMode: =Parent.DisplayMode
+                        DisplayName: =DataSourceInfo([@Division_1],DataSourceInfo.DisplayName,"Factors")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =50
+                        Required: =false
+                        Update: =DataCardValue83.SelectedItems
+                        Width: =900
+                        X: =0
+                        Y: =0
+                        ZIndex: =1
+
+                        DataCardKey83 As label:
+                            AutoHeight: =true
+                            Height: =34
+                            Text: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            Wrap: =false
+                            X: =30
+                            Y: =10
+                            ZIndex: =1
+
+                        DataCardValue83 As combobox:
+                            BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                            DefaultSelectedItems: =Parent.Default
+                            DisplayFields: =["Value"]
+                            DisplayMode: =Parent.DisplayMode
+                            Items: =Choices([@Division_1].Factors)
+                            PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                            SearchFields: =["Value"]
+                            SearchItems: =Choices(Division_1.Factors,DataCardValue83.SearchText)
+                            Tooltip: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardKey83.Y + DataCardKey83.Height + 5
+                            ZIndex: =2
+
+                        ErrorMessage83 As label:
+                            AutoHeight: =true
+                            Height: =10
+                            Live: =Live.Assertive
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Parent.Error
+                            Visible: =Parent.DisplayMode=DisplayMode.Edit
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardValue83.Y + DataCardValue83.Height
+                            ZIndex: =3
+
+                        StarVisible83 As label:
+                            Align: =Align.Center
+                            Height: =DataCardKey83.Height
+                            Text: ="*"
+                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =30
+                            Wrap: =false
+                            Y: =DataCardKey83.Y
+                            ZIndex: =4
+
+            Container28_18 As groupContainer.horizontalAutoLayoutContainer:
+                DropShadow: =DropShadow.None
+                FillPortions: =0
+                Height: =100
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutGap: =50
+                LayoutJustifyContent: =LayoutJustifyContent.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =4
+
+                Button4_6 As button:
+                    OnSelect: |-
+                        =SubmitForm(Form2_1);UpdateContext({varshoweditpopup:false});Notify("The division has been updated successfully",NotificationType.Success);ResetForm(Form2_1);
+                    Text: ="Save"
+                    ZIndex: =1
+
+                Button4_7 As button:
+                    OnSelect: |-
+                        =UpdateContext({AddFactor:false})
                     Text: ="Cancel"
                     ZIndex: =2
 
