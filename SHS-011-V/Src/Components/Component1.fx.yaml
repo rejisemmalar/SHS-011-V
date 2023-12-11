@@ -17,6 +17,56 @@ Component1 As CanvasComponent:
     Fill: =RGBA(0, 0, 0, 0)
     Height: =900
     IsSubMenuVisible: =true
+    LoginNameMenu: |-
+        =If(
+            VarUSerName = "admin",
+            Table({Title: "A",color: Color.Purple}),
+            If(
+                VarUSerName = "champion",
+                Table(
+                    {
+                        Title: "C",
+                        color: Color.DeepPink
+                    }
+                ),
+                If(
+                    VarUSerName = "approver1",
+                    Table(
+                        {
+                            Title: "A1",
+                            color: Color.Yellow
+                        }
+                    ),
+                    If(
+                        VarUSerName = "approver2",
+                        Table(
+                            {
+                                Title: "A2",
+                                color: Color.OrangeRed
+                            }
+                        ),
+                        If(
+                            VarUSerName = "approver3",
+                            Table(
+                                {
+                                    Title: "A3",
+                                    color: Color.Green
+                                }
+                            ),
+                            If(
+                                VarUSerName = "approver4",
+                                Table(
+                                    {
+                                        Title: "A4",
+                                        color: Color.RosyBrown
+                                    }
+                                )
+                            )
+                        )
+                    )
+                )
+            )
+        )
     MaxSubMenu: =100
     Menu: |-
         =If(
@@ -287,26 +337,38 @@ Component1 As CanvasComponent:
             Y: =39
             ZIndex: =4
 
-        Circle1_1 As circle:
-            Fill: =RGBA(237, 5, 136, 1)
-            Height: =62
-            OnSelect: =
-            Width: =60
-            X: =1228
-            Y: =28
-            ZIndex: =5
+        Gallery8 As gallery.galleryVertical:
+            DelayItemLoading: =true
+            Height: =109
+            Items: =Component1.LoginNameMenu
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            ShowScrollbar: =false
+            TemplateSize: =104
+            Width: =105
+            X: =1205
+            ZIndex: =7
 
-        Label6 As label:
-            Color: =RGBA(255, 255, 255, 1)
-            FontWeight: =FontWeight.Semibold
-            Height: =52
-            OnSelect: =Set(ShowMenuadmin, !ShowMenuadmin)
-            Size: =25
-            Text: ="A"
-            Width: =34
-            X: =1241
-            Y: =33
-            ZIndex: =6
+            Circle1_7 As circle:
+                Fill: =ThisItem.color
+                Height: =62
+                OnSelect: =
+                Width: =60
+                X: =22
+                Y: =18
+                ZIndex: =1
+
+            Label6_6 As label:
+                Color: =RGBA(255, 255, 255, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =52
+                OnSelect: =Set(ShowMenuadmin, !ShowMenuadmin)
+                Size: =25
+                Text: =ThisItem.Title
+                Width: =34
+                X: =35
+                Y: =23
+                ZIndex: =2
 
     MainMenu As gallery.variableTemplateHeightGallery:
         DelayItemLoading: =true
