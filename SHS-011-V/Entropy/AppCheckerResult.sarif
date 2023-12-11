@@ -9944,6 +9944,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "Division.Main.Container22.Gallery6.Items"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Division.Main.Container22.Gallery6.Items",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "Items",
+                "module": "Division",
+                "type": "Division.Main.Container22.Gallery6"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-InefficientDelayLoading",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "Factors.DeletePopup_Factors.X"
                 }
               ],
