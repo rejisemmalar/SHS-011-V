@@ -1,9 +1,5 @@
 "'All Initiatives(C)' As screen":
 
-    "'Navigation(C)_3' As 'Navigation(C)'":
-        CurrentScreen: ="Inbox"
-        Height: =768
-
     Icon5_14 As icon.HorizontalLine:
         BorderColor: =RGBA(166, 166, 166, 1)
         BorderThickness: =1
@@ -49,4 +45,8 @@
         X: =1136
         Y: =194
         ZIndex: =6
+
+    Component1_10 As Component1:
+        Height: =768
+        ZIndex: =7
 
