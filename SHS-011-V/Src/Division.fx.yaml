@@ -281,7 +281,7 @@ Division As screen:
             Gallery6 As gallery.galleryVertical:
                 DelayItemLoading: =true
                 Items: |+
-                    =Filter(Division_1,StartsWith('Division Code',TextInput1_1.Text)||StartsWith('Division Name',TextInput1_1.Text))
+                    =Filter(Division_1,StartsWith('Division Code',TextInput1_2.Text)||StartsWith('Division Name',TextInput1_2.Text))
                     
                 Layout: =Layout.Vertical
                 LayoutMinHeight: =287
