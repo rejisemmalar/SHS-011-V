@@ -61,11 +61,49 @@ Division As screen:
                 LayoutMode: =LayoutMode.Auto
                 ZIndex: =2
 
-                Search_4 As Search:
-                    LayoutMinHeight: =640
-                    LayoutMinWidth: =640
-                    X: =577
-                    Y: =62
+                Container25_21 As groupContainer.manualLayoutContainer:
+                    DropShadow: =DropShadow.None
+                    LayoutMinHeight: =80
+                    LayoutMinWidth: =255
+                    ZIndex: =1
+
+                    TextInput1_2 As text:
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        BorderThickness: =1
+                        Default: =""
+                        DelayOutput: =true
+                        HintText: ="Search"
+                        HoverBorderColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(255, 255, 255, 1)
+                        OnChange: =Set(search_name,TextInput1_2.Text)
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Width: =241
+                        X: =9
+                        Y: =21
+                        ZIndex: =1
+
+                    Icon28_18 As icon.Search:
+                        Height: =40
+                        Icon: =Icon.Search
+                        OnSelect: =Set(search_name,TextInput1_2.Text)
+                        Visible: =If(IsBlank(TextInput1_2.Text),true,false)
+                        Width: =30
+                        X: =200
+                        Y: =21
+                        ZIndex: =2
+
+                    Icon28_19 As icon.Cancel:
+                        Height: =27
+                        Icon: =Icon.Cancel
+                        OnSelect: =Set(search_name,"");Reset(TextInput1_2)
+                        Visible: =If(IsBlank(TextInput1_2.Text),false,true)
+                        Width: =28
+                        X: =202
+                        Y: =27
+                        ZIndex: =3
 
                 Container6 As groupContainer.manualLayoutContainer:
                     AlignInContainer: =AlignInContainer.Center
@@ -74,7 +112,7 @@ Division As screen:
                     LayoutMinHeight: =100
                     LayoutMinWidth: =100
                     Width: =130
-                    ZIndex: =4
+                    ZIndex: =2
 
                     Button1_1 As button:
                         DisabledFill: =Self.Fill
@@ -132,7 +170,7 @@ Division As screen:
                     LayoutMinHeight: =100
                     LayoutMinWidth: =100
                     Width: =130
-                    ZIndex: =5
+                    ZIndex: =3
 
                     Button1_2 As button:
                         DisabledFill: =Self.Fill
@@ -242,7 +280,9 @@ Division As screen:
 
             Gallery6 As gallery.galleryVertical:
                 DelayItemLoading: =true
-                Items: =Division_1
+                Items: |+
+                    =Filter(Division_1,StartsWith('Division Code',TextInput1_1.Text)||StartsWith('Division Name',TextInput1_1.Text))
+                    
                 Layout: =Layout.Vertical
                 LayoutMinHeight: =287
                 LayoutMinWidth: =320
